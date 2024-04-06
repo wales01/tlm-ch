@@ -6,6 +6,7 @@ import (
 	ollama "github.com/jmorganca/ollama/api"
 	"github.com/yusufcanb/tlm/config"
 	"github.com/yusufcanb/tlm/explain"
+	"github.com/yusufcanb/tlm/fix"
 	"github.com/yusufcanb/tlm/install"
 	"github.com/yusufcanb/tlm/suggest"
 	"io/fs"
@@ -27,7 +28,8 @@ func New(version, buildSha string) *TlmApp {
 	o, _ := ollama.ClientFromEnvironment()
 	sug := suggest.New(o, version)
 	exp := explain.New(o, version)
-	ins := install.New(o, sug, exp)
+	fi := fix.New(o, version)
+	ins := install.New(o, sug, exp, fi)
 
 	cliApp := &cli.App{
 		Name:            "tlm",
@@ -43,6 +45,7 @@ func New(version, buildSha string) *TlmApp {
 		Commands: []*cli.Command{
 			sug.Command(),
 			exp.Command(),
+			fi.Command(),
 			ins.DeployCommand(),
 			con.Command(),
 			{

@@ -54,4 +54,15 @@ func (i *Install) deployTlm() {
 		}
 	}).Run()
 	fmt.Println("- Creating Modelfile for explanations. " + shell.Ok())
+
+	// 8. Install the modelfile (Explain)
+	_ = spinner.New().Type(spinner.Line).Title(" Creating Modelfile for fixes").Action(func() {
+		err = i.installModelfile(i.fix.Tag(), i.fix.Modelfile())
+		time.Sleep(1 * time.Second)
+		if err != nil {
+			fmt.Println("- Creating Modelfile for fixes. " + shell.Err())
+			os.Exit(-1)
+		}
+	}).Run()
+	fmt.Println("- Creating Modelfile for fixes. " + shell.Ok())
 }
