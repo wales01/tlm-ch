@@ -80,7 +80,7 @@ curl -fsSL https://raw.githubusercontent.com/yusufcanb/tlm/1.1/install.sh | sudo
 Download and execute the installation script by using the following command;
 
 ```powershell
-Invoke-RestMethod -Uri https://raw.githubusercontent.com/yusufcanb/tlm/1.1/install.ps1 | Invoke-Expression
+Invoke-RestMethod -Uri https://raw.githubusercontent.com/wales01/tlm-ch/1.1/install.ps1 | Invoke-Expression
 ```
 
 ### Go Install
