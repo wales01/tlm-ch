@@ -105,10 +105,10 @@ try {
 
     ."$install_directory\tlm.exe" deploy
 } catch {
-    Write-Error "tlm deploy failed."
+    Write-Error "tlm-ch deploy failed."
     return 1
 }
 
 Write-Host ""
 Write-Host "Installation completed successfully."
-Write-Host "Type 'tlm help' to get started."
+Write-Host "Type 'tlm-ch help' to get started."
