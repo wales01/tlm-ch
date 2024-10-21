@@ -17,7 +17,7 @@ if ($env:PROCESSOR_ARCHITECTURE -eq 'AMD64') {
 
 # Download URL Construction
 $version = "main"
-$base_url = "https://github.com/wales01/tlm-ch/releases/download"
+$base_url = "https://github.com/wales01/tlm-ch"
 $download_url = "${base_url}/${version}/tlm_${version}_${os}_${arch}.exe"
 
 # Ollama check
